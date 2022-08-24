@@ -5,7 +5,7 @@ end
 
 nvim_tree.setup({
   sort_by = "case_sensitive",
-  disable_netrw = true,
+  disable_netrw = false,
   update_cwd = true,   
   update_focused_file = {
       enable = true,

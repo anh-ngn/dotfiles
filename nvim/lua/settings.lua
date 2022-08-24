@@ -20,7 +20,7 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- change update time, fix CursorHold error
-vim.opt.updatetime = 500
+-- vim.opt.updatetime = 500
 
 -- tab settings
 vim.opt.tabstop = 4
@@ -56,8 +56,15 @@ local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', '<space>t', ':sp|resize 12|term<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
 
+-- Lua snip
+vim.api.nvim_set_keymap("i", "<c-k>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
+vim.api.nvim_set_keymap("s", "<c-k>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
+vim.api.nvim_set_keymap("i", "<c-j>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+vim.api.nvim_set_keymap("s", "<c-j>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+
 -- Build c++ file with F5 and F6 keys
 vim.cmd([[
-	autocmd filetype cpp nnoremap <F6> :w <bar> !g++ -ulimit -Wall -Wno-unused-result -O2   % -o %:r<CR> :sp<bar>resize 12<bar>term ./%:r < ./input.txt <CR>
+	autocmd filetype cpp nnoremap <F6> :w <bar> !g++ -ulimit -Wall -Wno-unused-result -O2   % -o %:r <CR> :sp<bar>resize 12<bar>term ./%:r < ./input.txt <CR>
 	autocmd filetype cpp nnoremap <F5> :w <bar> !g++ -ulimit -Wall -Wno-unused-result -O2   % -o %:r <CR> :sp<bar>resize 12<bar>term ./%:r <CR>
 ]])
+

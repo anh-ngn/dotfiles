@@ -35,7 +35,7 @@ return require('packer').startup(function(use)
 				"L3MON4D3/LuaSnip",
 				requires = { "rafamadriz/friendly-snippets" },
 				config = function()
-					require("luasnip.loaders.from_vscode").lazy_load()
+					require('config.luasnip')
 				end,
 			},
 			{ 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
@@ -93,7 +93,10 @@ return require('packer').startup(function(use)
 	
 	use {
 		'nvim-telescope/telescope.nvim', 
-		requires = { {'nvim-lua/plenary.nvim'} }
+		requires = { {'nvim-lua/plenary.nvim'} },
+		config = function()
+			require('config.telescope')
+		end,
 	}
 
 	use {

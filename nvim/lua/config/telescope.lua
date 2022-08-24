@@ -1,11 +1,13 @@
-local ok, bufferline = pcall(require, 'bufferline')
+local ok, telescope = pcall(require, 'telescope')
 if not ok then
   return
 end
 
-bufferline.setup({})
+telescope.setup({})
 
-local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap('n', '<Tab>', [[<Cmd>BufferLineCycleNext<CR>]], opts)
-vim.api.nvim_set_keymap('n', '<S-Tab>', [[<Cmd>BufferLineCyclePrev<CR>]], opts)
-vim.api.nvim_set_keymap('n', '<leader>d', '<cmd>bdelete!<cr>', opts)
+vim.cmd([[
+	nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+	nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+	nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+	nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+]])
