@@ -17,7 +17,7 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 
 -- change scrolloff size
-vim.opt.scrolloff = 10
+-- vim.opt.scrolloff = 10
 
 -- change update time, fix CursorHold error
 -- vim.opt.updatetime = 500
