@@ -5,5 +5,5 @@ end
 
 autopairs.setup({
   check_ts = true,
-  close_triple_quotes = true,
+  -- close_triple_quotes = true,
 })

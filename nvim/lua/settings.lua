@@ -1,7 +1,7 @@
 -- colorscheme
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
-vim.cmd('colorscheme tokyonight')
+vim.cmd('colorscheme onedark')
 
 -- enable mouse
 vim.opt.mouse = 'a'
@@ -20,7 +20,7 @@ vim.opt.cursorline = true
 -- vim.opt.scrolloff = 10
 
 -- change update time, fix CursorHold error
--- vim.opt.updatetime = 500
+vim.opt.updatetime = 400
 
 -- tab settings
 vim.opt.tabstop = 4

@@ -21,6 +21,7 @@ nvim_tree.setup({
     height = 30,
     hide_root_folder = false,
     side = "left",  
+	relativenumber = true,
     mappings = {
       list = {
         { key = "u", action = "dir_up" },

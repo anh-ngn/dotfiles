@@ -2,6 +2,8 @@ return require('packer').startup(function(use)
 
 	-- use {'neoclide/coc.nvim', branch = 'release', run = 'yarn install --frozen-lockfile',}
 	
+	use 'wbthomason/packer.nvim'
+	
 	-- lsp
 	use {
 		'williamboman/mason.nvim',
@@ -58,14 +60,12 @@ return require('packer').startup(function(use)
 
 	use {
 		"windwp/nvim-autopairs",
-		after = 'nvim-cmp',
+		-- after = 'nvim-cmp',
 		config = function()
 			require('config.autopairs')
 		end,
 	}
 
-	use 'wbthomason/packer.nvim'
-	
 	use 'folke/tokyonight.nvim'
 	
 	use 'lewis6991/impatient.nvim'
@@ -117,6 +117,13 @@ return require('packer').startup(function(use)
 	    end
 	}
 	
+	use {
+	  "folke/trouble.nvim",
+	  requires = "kyazdani42/nvim-web-devicons",
+	  	config = function()
+      		require('config.trouble')
+    	end,
+	}
 	-- use {
  --    	'akinsho/bufferline.nvim',
  --    	config = function()

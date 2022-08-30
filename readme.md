@@ -1,2 +1,2 @@
-# Tmux, Vim, NVim dot-files
+# Tmux, Vim, NVim and Zsh dot-files
 
