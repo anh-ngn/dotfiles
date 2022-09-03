@@ -29,6 +29,7 @@ vim.opt.shiftwidth = 4
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.smarttab = true
+vim.opt.expandtab = true
 
 
 -- searching and replacing settings
@@ -49,9 +50,7 @@ vim.opt.foldenable = false
 -- Enable background buffers
 vim.opt.hidden = true
 
-
 -- Terminal mappings
---
 local opts = { noremap = true, silent = true } 
 vim.api.nvim_set_keymap('n', '<space>t', ':sp|resize 12|term<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
@@ -67,4 +66,16 @@ vim.cmd([[
 	autocmd filetype cpp nnoremap <F6> :w <bar> !rm %:r; g++ -ulimit -Wall -Wno-unused-result -g -O2   % -o %:r <CR> :sp<bar>resize 12<bar>term ./%:r < ./input.txt <CR>
 	autocmd filetype cpp nnoremap <F5> :w <bar> !rm %:r; g++ -ulimit -Wall -Wno-unused-result -g -O2   % -o %:r <CR> :sp<bar>resize 12<bar>term ./%:r <CR>
 ]])
+
+vim.api.nvim_create_user_command(
+    'ChangeTabSize', 
+    function(opts) 
+        -- foldcus.fold(tonumber(opts.args))   
+        vim.opt.tabstop = tonumber(opts.args)
+        vim.opt.softtabstop =  tonumber(opts.args)
+        vim.opt.shiftwidth = tonumber(opts.args)
+    end, 
+    { nargs = '*' }
+)
+
 

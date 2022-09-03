@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
 	use {
 	  "ray-x/lsp_signature.nvim",
 		config = function()
-			require('lsp_signature').setup()
+      		require('config.lsp_signature')
     	end,
 	
 	}
@@ -50,12 +50,39 @@ return require('packer').startup(function(use)
 		event = 'InsertEnter *',
 	}
 
-	use { 'tpope/vim-surround' }
+	use {
+		"jose-elias-alvarez/null-ls.nvim",
+		-- after = 'nvim-cmp',
+		config = function()
+			require('config.null-ls')
+		end,
+	}
+
+	use {
+		"MunifTanjim/prettier.nvim",
+		-- after = 'nvim-cmp',
+		config = function()
+			require('config.prettier')
+		end,
+	}
+
+	-- use { 'tpope/vim-surround' }
+    use({
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    })
 
 	use { 
 		"windwp/nvim-ts-autotag", 
-		event = "InsertEnter",
-		-- require('nvim-ts-autotag').setup(),
+		-- event = "InsertEnter",
+		config = function()
+			require('nvim-ts-autotag').setup()
+		end,
 	}
 
 	use {
@@ -72,6 +99,8 @@ return require('packer').startup(function(use)
 	
 	use 'mhinz/vim-startify'
 	
+    use 'tpope/vim-sleuth'
+	
 	use {'dracula/vim', as = 'dracula'}
 
 	use 'joshdick/onedark.vim'
@@ -84,6 +113,11 @@ return require('packer').startup(function(use)
 		end,
 	}
 	
+    use {
+        "SmiteshP/nvim-gps",
+        -- requires = "nvim-treesitter/nvim-treesitter"
+    }
+
 	use {
 	    'numToStr/Comment.nvim',
 	    config = function()
@@ -91,6 +125,13 @@ return require('packer').startup(function(use)
 	    end
 	}
 	
+	use {
+	    'norcalli/nvim-colorizer.lua',
+	    config = function()
+			require('colorizer').setup()
+	    end
+	}
+
 	use {
 		'nvim-telescope/telescope.nvim', 
 		requires = { {'nvim-lua/plenary.nvim'} },
@@ -113,7 +154,7 @@ return require('packer').startup(function(use)
   		'nvim-lualine/lualine.nvim',
   		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
   	    config = function()
-			require('lualine').setup()
+      		require('config.lualine')
 	    end
 	}
 	

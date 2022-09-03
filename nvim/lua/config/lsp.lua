@@ -70,14 +70,19 @@ local lsp_flags = {
 }
 
 require('lspconfig')['pyright'].setup({
+    capabilities = capabilities,
     on_attach = on_attach,
     flags = lsp_flags,
 })
 require('lspconfig')['tsserver'].setup({
+    capabilities = capabilities,
     on_attach = on_attach,
     flags = lsp_flags,
+    -- filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+    cmd = { "typescript-language-server", "--stdio" },
 })
 require('lspconfig')['rust_analyzer'].setup({
+    capabilities = capabilities,
     on_attach = on_attach,
     flags = lsp_flags,
     -- Server-specific settings...
@@ -88,24 +93,30 @@ require('lspconfig')['rust_analyzer'].setup({
 require('lspconfig')['intelephense'].setup({
     on_attach = on_attach,
     flags = lsp_flags,
+    capabilities = capabilities,
 })
 require('lspconfig')['clangd'].setup({
     on_attach = on_attach,
     flags = lsp_flags,
+    capabilities = capabilities,
 })
 require('lspconfig')['html'].setup({
     on_attach = on_attach,
     flags = lsp_flags,
+    capabilities = capabilities,
 })
 require('lspconfig')['cssls'].setup({
     on_attach = on_attach,
     flags = lsp_flags,
+    capabilities = capabilities,
 })
 require('lspconfig')['jsonls'].setup({
     on_attach = on_attach,
     flags = lsp_flags,
+    capabilities = capabilities,
 })
 require('lspconfig')['marksman'].setup({
     on_attach = on_attach,
     flags = lsp_flags,
+    capabilities = capabilities,
 })
