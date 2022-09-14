@@ -15,6 +15,6 @@ prettier.setup({
     "typescript",
     "typescriptreact",
     "yaml",
-	"php",
+    "php",
   },
 })

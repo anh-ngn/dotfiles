@@ -99,11 +99,29 @@ return require('packer').startup(function(use)
 	
 	use 'mhinz/vim-startify'
 	
-    use 'tpope/vim-sleuth'
+	use 'tpope/vim-sleuth'
+
+    use "lukas-reineke/indent-blankline.nvim"
 	
 	use {'dracula/vim', as = 'dracula'}
 
-	use 'joshdick/onedark.vim'
+	use {
+		'navarasu/onedark.nvim',
+		config = function()
+			require('config.onedark')
+		end,
+	}
+	
+	use "rebelot/kanagawa.nvim"
+
+	use({
+		'projekt0n/github-nvim-theme',
+		config = function()
+			require('github-theme').setup({
+				-- ...
+			})
+		end
+	})
 	
 	use { 
 		'nvim-treesitter/nvim-treesitter', 
@@ -113,10 +131,10 @@ return require('packer').startup(function(use)
 		end,
 	}
 	
-    use {
-        "SmiteshP/nvim-gps",
-        -- requires = "nvim-treesitter/nvim-treesitter"
-    }
+	use {
+		"SmiteshP/nvim-gps",
+		-- requires = "nvim-treesitter/nvim-treesitter"
+	}
 
 	use {
 	    'numToStr/Comment.nvim',

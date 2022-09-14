@@ -49,6 +49,24 @@ ls.add_snippets("cpp", {
 	}),
 
 	s({
+		trig = "TestCase",
+		namr = "Multi Test Case",
+		dscr = "Multi test case.",
+	}, {
+		t({
+			"int T;",
+			"cin >> T;",
+			"while (T--) {",
+			"\t",
+		}),
+		i(0),
+		t({
+			"",
+			"}",
+		}),
+	}),
+
+	s({
 		trig = "ii",
 		namr = "pair<int, int>",
 		dscr = "pair<int, int>",

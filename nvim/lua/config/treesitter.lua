@@ -14,11 +14,11 @@ require'nvim-treesitter.configs'.setup {
 		-- `false` will disable the whole extension
 		enable = true,
 		-- list of language that will be disabled
-		-- disable = {  },
 	},
 
 	indent = {
-		enable = true
+		enable = true,
+		disable = { "python", "cpp"},
 	},
 	autotag = {
 		enable = true,

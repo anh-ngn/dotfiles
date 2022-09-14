@@ -23,7 +23,13 @@ null_ls.setup({
 
 -- use Format command to format
 vim.api.nvim_create_user_command(
-  'FormatCode',
+  'FormatDocument',
   ":lua vim.lsp.buf.formatting({})",
+	{range=1}
+)
+
+vim.api.nvim_create_user_command(
+  'FormatSlection',
+  ":lua vim.lsp.buf.range_formatting({})",
 	{range=1}
 )

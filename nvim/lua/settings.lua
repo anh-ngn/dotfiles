@@ -65,7 +65,12 @@ vim.api.nvim_set_keymap("s", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", 
 vim.cmd([[
 	autocmd filetype cpp nnoremap <F6> :w <bar> !rm %:r; g++ -ulimit -Wall -Wno-unused-result -g -O2   % -o %:r <CR> :sp<bar>resize 12<bar>term ./%:r < ./input.txt <CR>
 	autocmd filetype cpp nnoremap <F5> :w <bar> !rm %:r; g++ -ulimit -Wall -Wno-unused-result -g -O2   % -o %:r <CR> :sp<bar>resize 12<bar>term ./%:r <CR>
+        autocmd filetype cpp nnoremap <F10> :w <bar> !rm %:r; g++ -ulimit -Wall -Wno-unused-result -g -O2   % -o %:r <CR> :vs<bar>term gdb -tui %:r <CR>
+
 ]])
+
+-- start insert mode when open terminal
+-- vim.cmd([[autocmd BufWinEnter,WinEnter term://* startinsert]])
 
 vim.api.nvim_create_user_command(
     'ChangeTabSize', 
@@ -78,4 +83,12 @@ vim.api.nvim_create_user_command(
     { nargs = '*' }
 )
 
+vim.api.nvim_create_user_command(
+    'DebugCurrentFile', 
+    function() 
+    vim.cmd([[execute ":w \| !rm %:r; g++ -ulimit -Wall -Wno-unused-result -g -O2   % -o %:r"]])
+    vim.cmd([[execute ":vs\|term gdb -tui %:r"]])
+    end, 
+    { nargs = '*' }
+)
 

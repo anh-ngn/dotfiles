@@ -12,7 +12,7 @@ nvim_tree.setup({
   open_on_tab = false,
   update_focused_file = {
       enable = true,
-      update_cwd = false,
+      update_cwd = true,
   },
   view = {
     adaptive_size = false,
@@ -21,7 +21,7 @@ nvim_tree.setup({
     height = 30,
     hide_root_folder = false,
     side = "left",  
-	relativenumber = true,
+    relativenumber = true,
     mappings = {
       list = {
         { key = "u", action = "dir_up" },
