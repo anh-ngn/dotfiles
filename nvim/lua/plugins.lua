@@ -107,9 +107,9 @@ return require('packer').startup(function(use)
 
 	use {
 		'navarasu/onedark.nvim',
-		config = function()
-			require('config.onedark')
-		end,
+		-- config = function()
+		-- 	require('config.onedark')
+		-- end,
 	}
 	
 	use "rebelot/kanagawa.nvim"
@@ -189,7 +189,9 @@ return require('packer').startup(function(use)
  --      		require('config.bufferline')
  --    	end,
  --  	}
-	
+	use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+		require("toggleterm").setup()
+	end}
 	
 	use({
 		"iamcco/markdown-preview.nvim",

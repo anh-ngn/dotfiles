@@ -28,6 +28,12 @@ ls.add_snippets("cpp", {
 	}, {
 		t({
 			"#include <bits/stdc++.h>",
+	"#define fi first",
+	"#define se second",
+	"#define ll long long",
+	"#define FOR(i,a,b) for (int i=a; i<=b; ++i)",
+	"#define FORD(i,b,a) for (int i=b; i>=a; --i)",
+	"#define ii pair<int, int>",
 			"using namespace std;",
 			"",
 			"const int MAX = 2e5+6;",
@@ -80,6 +86,14 @@ ls.add_snippets("cpp", {
 		dscr = "snippet for int64_t",
 	}, {
 		t({"int64_t "}),
+	}),
+
+	s({
+		trig = "ENDL",
+		namr = "snippet for endl",
+		dscr = "snippet for endl",
+	}, {
+		t({"\"\\n\""}),
 	}),
 
 	s({

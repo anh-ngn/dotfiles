@@ -60,7 +60,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
     "additionalTextEdits",
   },
 }
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 
 local lsp_flags = {
@@ -120,3 +120,8 @@ require('lspconfig')['marksman'].setup({
     flags = lsp_flags,
     capabilities = capabilities,
 })
+-- require('lspconfig')['sumneko_lua'].setup({
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+--     capabilities = capabilities,
+-- })

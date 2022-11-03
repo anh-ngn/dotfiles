@@ -1,13 +1,13 @@
 -- colorscheme
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
-vim.cmd('colorscheme onedark')
+vim.cmd('colorscheme tokyonight')
 
 -- enable mouse
 vim.opt.mouse = 'a'
 
 -- sync nvim clipboard with system clipboard
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 
 -- enable line numbers and relative line numbers
 vim.opt.number = true
@@ -44,11 +44,16 @@ vim.opt.inccommand = "split"
 vim.opt.foldmethod = "syntax"
 vim.opt.foldenable = false
 
+-- split direction
+vim.cmd([[
+set splitbelow
+set splitright
+]])
 --vim.api.nvim_command([[]]) to run multiple vim-script command
 --vim.cmd() to run single vim-script command
 
 -- Enable background buffers
-vim.opt.hidden = true
+-- vim.opt.hidden = true
 
 -- Terminal mappings
 local opts = { noremap = true, silent = true } 
@@ -92,3 +97,25 @@ vim.api.nvim_create_user_command(
     { nargs = '*' }
 )
 
+vim.api.nvim_create_user_command(
+    'SplitInpfile', 
+    function() 
+        vim.cmd([[execute ":vs\|e input.txt\|vertical resize 40"]])
+    end, 
+    { nargs = '*' }
+)
+
+-- toggle term
+vim.cmd([[
+nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
+]])
+
+-- vim.api.nvim_create_user_command(
+--     'CopyToClipboard', 
+--     function() 
+--     vim.cmd([[execute ":!clip.exe < %"]])
+--     end, 
+--     { nargs = '*' }
+-- )
+--
